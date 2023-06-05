@@ -1,6 +1,6 @@
-package techboot.SpringTask1_1.controller;
+package techboot.SpringTask1_2.controller;
 
-import techboot.SpringTask1_1.model.Items;
+import techboot.SpringTask1_2.model.Items;
 
 import java.util.ArrayList;
 
@@ -8,7 +8,7 @@ public class DBManager {
 
     private static final ArrayList<Items> items = new ArrayList<>();
 
-//    private static Long id = 6L;
+    private static Long id = 6L;
     static {
         items.add(new Items(1L, "Mac Book Pro", "8 GB RAM 255 GB SSD Intel Core i7 ",1199.99));
         items.add(new Items(2L, "Mac Book Pro", "16 GB RAM 500 GB SSD Apple M1 ",1499.99));
@@ -20,5 +20,15 @@ public class DBManager {
 
     public static ArrayList<Items> getItems(){
         return items;
+    }
+
+    public static void addItems(Items item) {
+        item.setId(id);
+        id++;
+        items.add(item);
+
+    }
+    public static Items getItem(Long id) {
+        return items.stream().filter(items1 -> items1.getId() == id).findFirst().orElse(null);
     }
 }

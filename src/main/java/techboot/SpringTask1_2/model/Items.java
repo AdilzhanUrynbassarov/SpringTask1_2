@@ -1,4 +1,4 @@
-package techboot.SpringTask1_1.model;
+package techboot.SpringTask1_2.model;
 
 
 import lombok.AllArgsConstructor;

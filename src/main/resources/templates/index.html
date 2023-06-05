@@ -1,41 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="text/css" th:href="@{'/css/bootstrap.min.css'}">
-    <script type="text/javascript" th:src="@{'/js/bootstrap.bundle.js'}"></script>
-
-</head>
-<body>
+<html lang="en"
+      xmlns:th = "http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="main_layout.html">
 
 
-<!--<h3 th:each="vesh : ${muzikalar}">-->
-<!--    <span th:text="${vesh.id}"></span>-->
-<!--    <span th:text="${vesh.name}"></span>-->
-<!--    <span th:text="${vesh.description}"></span>-->
-<!--    <span th:text="${vesh.price}"></span>-->
-
-<!--</h3>-->
-
-
-
-
-<div class="container px-3 mt-5">
-    <div class="row justify-content-center" >
-        <div class="col-3 bg-light p-3 m-1" th:each="nout: ${muzikalar}" >
-            <h3 class="text-center text-primary" th:text="${nout.name}"></h3>
-            <p class="text-center" th:text="${nout.description}"></p>
-            <p class="text-center text-success" th:text="${nout.price}">$</p>
-            <div class="row justify-content-center px-md-5">
-                <button class="btn btn-success text-center mt-3 mx-5">DETAILS</button>
+<div layout:fragment="siteContent">
+    <div class="container px-3 mt-5">
+        <div class="row justify-content-center" >
+            <div class="col-3 bg-light p-3 m-1" th:each="nout: ${muzikalar}" >
+                <h3 class="text-center text-primary" th:text="${nout.name}"></h3>
+                <p class="text-center" th:text="${nout.description}"></p>
+                <p class="text-center text-success" th:text="${nout.price}">$</p>
+                <div class="row justify-content-center px-md-5">
+                    <a class="btn btn-success text-center mt-3 mx-5" th:href="@{'/item-details?itemId=' + ${nout.id}}">DETAILS</a>
+                </div>
             </div>
-
         </div>
     </div>
 </div>
 
-
-</body>
 </html>
